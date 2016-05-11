@@ -43,8 +43,8 @@ angular.module('jeapp', ['ionic', 'jeapp.controllers'])
         }
       }
     })
-    .state('app.playlists', {
-      url: '/playlists',
+    .state('app.restaurants', {
+      url: '/restaurants',
       views: {
         'menuContent': {
           templateUrl: 'templates/restaurants.html',
