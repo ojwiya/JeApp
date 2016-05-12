@@ -1,4 +1,7 @@
-angular.module('jeapp', ['ionic', 'jeapp.controllers'])
+(function(){
+  'use strict';
+
+angular.module('jeapp', ['ionic'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -65,3 +68,5 @@ angular.module('jeapp', ['ionic', 'jeapp.controllers'])
   // if none of the above states are matched, use this as the fallback
   $urlRouterProvider.otherwise('/app/restaurants');
 });
+
+})();

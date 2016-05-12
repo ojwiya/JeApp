@@ -1,4 +1,7 @@
-angular.module('jeapp.controllers', [])
+(function(){
+  'use strict';
+  
+angular.module('jeapp')
 
 .controller('AppCtrl', function($scope, $ionicModal, $timeout) {
 
@@ -41,16 +44,67 @@ angular.module('jeapp.controllers', [])
   };
 })
 
-.controller('RestaurantsCtrl', function($scope) {
-  $scope.playlists = [
-    { title: 'Reggae', id: 1 },
-    { title: 'Chill', id: 2 },
-    { title: 'Dubstep', id: 3 },
-    { title: 'Indie', id: 4 },
-    { title: 'Rap', id: 5 },
-    { title: 'Cowbell', id: 6 }
-  ];
-})
+.controller('RestaurantsCtrl',['$scope','restaurantsService',function($scope,restaurantsService) {
+  var outcode = '';
+  
+  $scope.getRatingsSummary = function(rating) {
+    if(rating){
+        return Math.round(parseInt(rating)/5);
+     } else{
+        return 0;       
+    }
+
+  };
+  
+  $scope.restaurants = [{
+            "id": 11245,
+            "name": "Barbican Express Pizza",
+            "Address": {
+                "FirstLine": "131 Whitecross Street",
+                "City": "London",
+                "Postcode": "EC1Y 8JL",
+                "Latitude": 51.5233,
+                "Longitude": -0.093295
+            },
+            "DefaultDisplayRank": 0,
+            "SeoName": "barbicanexpresspizza",
+            "logoUrl": "http://d30v2pzvrfyzpo.cloudfront.net/uk/images/restaurants/11245.gif",
+            "IsCollection": true,
+            "IsDelivery": true,
+            "cuisines": [
+                {
+                    "name": "Italian",
+                    "SeoName": "italian"
+                },
+                {
+                    "name": "Pizza",
+                    "SeoName": "pizza"
+                }
+            ],
+            "OpeningTime": "0001-01-01T00:00:00Z",
+            "DriveDistance": 1.2,
+            "DriveInfoCalculated": true,
+            "DeliveryCost": 0,
+            "MinimumDeliveryValue": 10,
+            "IsNew": false,
+            "ratingDetails": {
+                "Count": 512,
+                "StarRating": 5
+            },
+            "OfferPercent": 0
+        }];
+
+  restaurantsService
+      .getRestaurants(outcode)
+      .then(function(restaurants) {
+        $scope.restaurants = [].concat(restaurants);
+      });
+      
+ 
+}])
 
 .controller('RestaurantCtrl', function($scope, $stateParams) {
+    
 });
+
+})();

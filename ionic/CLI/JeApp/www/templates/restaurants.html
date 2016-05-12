@@ -1,9 +1,21 @@
 <ion-view view-title="Restaurants">
   <ion-content>
-    <ion-list>
-      <ion-item ng-repeat="restaurant in restaurants" href="#/app/restaurants/{{restaurant.id}}">
-        {{restaurant.title}}
-      </ion-item>
-    </ion-list>
+    <div class="list">
+        <a class="item item-thumbnail-left item-icon-right" 
+        ng-repeat="restaurant in restaurants" href="#/app/restaurants/{{restaurant.id}}" >
+          <img src="{{restaurant.logoUrl}}">
+          <h2>{{restaurant.name}}</h2>
+           <p ng-repeat="cuisine in restaurant.cuisines">
+             {{cuisine.name}}
+             </p>
+<span ng-switch="getRatingsSummary(restaurant.ratingDetails.StarRating)">     
+      <span ng-switch-default><i class="icon ion-ios-star-outline icon-accessory">{{restaurant.ratingDetails.Count}}</i></span>
+     <span ng-switch-when="1"><i class="icon ion-ios-star-half icon-accessory">{{restaurant.ratingDetails.Count}}</i></span>
+     <span ng-switch-when="2"><i class="icon ion-ios-star icon-accessory">{{restaurant.ratingDetails.Count}}</i></span>
+</span>
+           
+        </a>
+    </div>
+    
   </ion-content>
 </ion-view>
