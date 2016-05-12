@@ -56,50 +56,14 @@ angular.module('jeapp')
 
   };
   
-  $scope.restaurants = [{
-            "id": 11245,
-            "name": "Barbican Express Pizza",
-            "Address": {
-                "FirstLine": "131 Whitecross Street",
-                "City": "London",
-                "Postcode": "EC1Y 8JL",
-                "Latitude": 51.5233,
-                "Longitude": -0.093295
-            },
-            "DefaultDisplayRank": 0,
-            "SeoName": "barbicanexpresspizza",
-            "logoUrl": "http://d30v2pzvrfyzpo.cloudfront.net/uk/images/restaurants/11245.gif",
-            "IsCollection": true,
-            "IsDelivery": true,
-            "cuisines": [
-                {
-                    "name": "Italian",
-                    "SeoName": "italian"
-                },
-                {
-                    "name": "Pizza",
-                    "SeoName": "pizza"
-                }
-            ],
-            "OpeningTime": "0001-01-01T00:00:00Z",
-            "DriveDistance": 1.2,
-            "DriveInfoCalculated": true,
-            "DeliveryCost": 0,
-            "MinimumDeliveryValue": 10,
-            "IsNew": false,
-            "ratingDetails": {
-                "Count": 512,
-                "StarRating": 5
-            },
-            "OfferPercent": 0
-        }];
+  $scope.restaurants = [];
 
   restaurantsService
       .getRestaurants(outcode)
       .then(function(restaurants) {
         $scope.restaurants = [].concat(restaurants);
       });
-      
+
  
 }])
 
