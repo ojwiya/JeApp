@@ -1,7 +1,7 @@
 (function(){
   'use strict';
 
-angular.module('jeapp', ['ionic'])
+angular.module('jeapp', ['ionic', 'ngCordova'])
 
 .run(function($ionicPlatform) {
   $ionicPlatform.ready(function() {
@@ -33,21 +33,22 @@ angular.module('jeapp', ['ionic'])
     url: '/search',
     views: {
       'menuContent': {
-        templateUrl: 'templates/search.html'
+        templateUrl: 'templates/search.html',
+        controller: 'SearchCtrl'
       }
     }
   })
 
-  .state('app.browse', {
-      url: '/browse',
+  .state('app.settings', {
+      url: '/settings',
       views: {
         'menuContent': {
-          templateUrl: 'templates/browse.html'
+          templateUrl: 'templates/settings.html'
         }
       }
     })
     .state('app.restaurants', {
-      url: '/restaurants',
+      url: '/restaurants/:postcode',
       views: {
         'menuContent': {
           templateUrl: 'templates/restaurants.html',
@@ -57,7 +58,7 @@ angular.module('jeapp', ['ionic'])
     })
 
   .state('app.single', {
-    url: '/restaurants/:restaurantId',
+    url: '/restaurant/:restaurantId',
     views: {
       'menuContent': {
         templateUrl: 'templates/restaurant.html',
@@ -66,7 +67,7 @@ angular.module('jeapp', ['ionic'])
     }
   });
   // if none of the above states are matched, use this as the fallback
-  $urlRouterProvider.otherwise('/app/restaurants');
+  $urlRouterProvider.otherwise('/app/restaurants/nw3 2tg');
 });
 
 })();

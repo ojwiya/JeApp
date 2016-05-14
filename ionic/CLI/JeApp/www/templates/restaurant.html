@@ -3,22 +3,35 @@
     <div class="list card">
 
   <div class="item item-avatar">
-    <img src="mcfly.jpg">
-    <h2>Marty McFly</h2>
-    <p>November 05, 1955</p>
+    <img src="">
+    <h2>{{restaurant.name}}</h2>
+    <p>{{restaurant.address}}</p>
+    <p>{{restaurant.name}}</p>
+    <p>{{restaurant.address}}</p>
+    <p>{{restaurant.postcode}}</p>
+    <p>{{restaurant.city}}  </p>
+    
   </div>
 
   <div class="item item-body">
-    <img class="full-image" src="delorean.jpg">
-    <p>
-      This is a "Facebook" styled Card. The header is created from a Thumbnail List item,
-      the content is from a card-body consisting of an image and paragraph text. The footer
-      consists of tabs, icons aligned left, within the card-footer.
+    <img class="full-image" src="http://lorempixel.com/230/230/food/">
+    <p ng-repeat="c in restaurant.cuisineTypes">
+      {{c.name}}
     </p>
     <p>
-      <a href="#" class="subdued">1 Like</a>
-      <a href="#" class="subdued">5 Comments</a>
+      <a href="#" class="subdued">min Value:{{restaurant.minimumDeliveryValue}}</a>
+      <a href="#" class="subdued">
+        <i ng-if="restaurant.isOpenNowForDelivery" class="icon ion-ios-circle-filled">Open</i>
+        <i ng-if="!restaurant.isOpenNowForDelivery" class="icon ion-ios-circle">Closed</i>
+        </a>
+      <a href="#" class="subdued">{{restaurant.deliveryTime}}<</a>
     </p>
+    
+      <p ng-repeat=" i in restaurant.ratingStars">
+      <i class="icon ion-ios-star"></i>
+    </p>
+     <i class="icon ion-ios-person">{{restaurant.numberOfRatings}}</i>
+     
   </div>
 
 </div>

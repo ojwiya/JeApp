@@ -2,19 +2,21 @@
   <ion-content>
     <div class="list">
         <a class="item item-thumbnail-left item-icon-right" 
-        ng-repeat="restaurant in restaurants" href="#/app/restaurants/{{restaurant.id}}" >
-          <img src="{{restaurant.logoUrl}}">
+        ng-repeat="restaurant in restaurants" href="#/app/restaurant/{{restaurant.id}}" >
+          <img src='http://lorempixel.com/100/100/food/{{restaurant.cuisineTypes[0].name}}'/>
           <h2>{{restaurant.name}}</h2>
-           <p ng-repeat="cuisine in restaurant.cuisines">
+           <p ng-repeat="cuisine in restaurant.cuisineTypes">
              {{cuisine.name}}
              </p>
-<span ng-switch="getRatingsSummary(restaurant.ratingDetails.StarRating)">     
-      <span ng-switch-default><i class="icon ion-ios-star-outline icon-accessory">{{restaurant.ratingDetails.Count}}</i></span>
-     <span ng-switch-when="1"><i class="icon ion-ios-star-half icon-accessory">{{restaurant.ratingDetails.Count}}</i></span>
-     <span ng-switch-when="2"><i class="icon ion-ios-star icon-accessory">{{restaurant.ratingDetails.Count}}</i></span>
+
+<span ng-switch="getRatingsSummary(restaurant.ratingStars)">     
+      <span ng-switch-default><i class="icon ion-ios-star-outline icon-accessory icon-left">{{restaurant.numberOfRatings}}</i></span>
+     <span ng-switch-when="1"><i class="icon ion-ios-star-half icon-accessory icon-left">{{restaurant.numberOfRatings}}</i></span>
+     <span ng-switch-when="2"><i class="icon ion-ios-star icon-accessory icon-left">{{restaurant.numberOfRatings}}</i></span>
 </span>
+</a>
            
-        </a>
+       
     </div>
     
   </ion-content>

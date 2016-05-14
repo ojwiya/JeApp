@@ -3,10 +3,13 @@
     <div class="list">
   <label class="item item-input">
     <span class="input-label">Enter Postcode:</span>
-    <input type="text" ng-model="outcode">
+    <input type="text" ng-model="postcode">
   </label>
         <label class="item">
-          <button class="button button-block button-positive" ng-click="getRestaurants()" type="submit">Go</button>
+          <button class="button button-block button-positive" ng-click="search()" type="submit">Go</button>
+        </label>
+        <label class="item">
+          <button class="button button-block button-energized" ng-click="gpsSearch()" type="submit">Use Current Location</button>
         </label>
 </div>
   </ion-content>
