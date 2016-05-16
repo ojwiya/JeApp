@@ -48,7 +48,7 @@ angular.module('jeapp', ['ionic', 'ngCordova'])
       }
     })
     .state('app.restaurants', {
-      url: '/restaurants/:postcode',
+      url: '/restaurants/:postcode?',
       views: {
         'menuContent': {
           templateUrl: 'templates/restaurants.html',
