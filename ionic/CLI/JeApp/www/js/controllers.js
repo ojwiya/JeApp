@@ -69,9 +69,11 @@ angular.module('jeapp')
             .success(function(data){
               $scope.restaurants = data.restaurants;
               restaurantsService.saveRestaurants($scope.restaurants);
+               $scope.$broadcast('scroll.refreshComplete');
             })
             .error(function(error){
               console.debug('There was an error retrieving the restaurants:' + error);
+               $scope.$broadcast('scroll.refreshComplete');
             });
      }
     }
