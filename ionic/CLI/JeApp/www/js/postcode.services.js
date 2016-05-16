@@ -10,14 +10,9 @@
   function postcodeService($http){
       
  var getPostcode = function(lat,lon) {
-    $http.get('http://api.postcodes.io/postcodes?lon=' +lon + '&lat=' + lat)
-      .success(function(data){
-        return data;
-      })
-      .error(function(error){
-        return error;
-      });
-    };
+   return $http.get('http://api.postcodes.io/postcodes?lon=' +lon + '&lat=' + lat)
+      
+    }
   
       return {
       getPostcode : getPostcode

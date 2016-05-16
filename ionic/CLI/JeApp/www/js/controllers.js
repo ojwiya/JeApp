@@ -44,23 +44,26 @@ angular.module('jeapp')
   };
 })
 
-.controller('RestaurantsCtrl',function($scope,$stateParams,restaurantsService) {
+.controller('RestaurantsCtrl',function($scope,$stateParams,restaurantsService,utilityService) {
   $scope.postcode = $stateParams.postcode;
   $scope.getRestaurants = getRestaurants;
+  $scope.convertNumberToArray =  utilityService.convertNumberToArray;
   
   
   $scope.getRatingsSummary = function(rating) {
     if(rating){
-        return Math.round(parseInt(rating)/5);
+        return Math.round(parseInt(rating)/3);
      } else{
         return 0;       
     }
   };
   
+    
   $scope.restaurants = [];
 
   function getRestaurants(){
      if($scope.postcode){  
+
        restaurantsService
           .getRestaurants($scope.postcode)
             .success(function(data){
@@ -77,52 +80,55 @@ angular.module('jeapp')
 
 })
 
-.controller('RestaurantCtrl', function($scope, $stateParams,restaurantsService) {
+.controller('RestaurantCtrl', function($scope, $stateParams,restaurantsService,utilityService) {
     var restaurantId = ($stateParams.restaurantId  || "");
     $scope.restaurant =  restaurantsService.getRestaurant(restaurantId);
 })
 
-.controller('SearchCtrl', function($scope, $stateParams,$location,gpsService,postcodeService) {
+.controller('SearchCtrl', function($scope, $state,$location,gpsService,postcodeService) {
     
     $scope.matchingAddresses = [];
-    $scope.gpsPostcode;
-    $scope.postcode = 'nw3 2tg';
+    $scope.searchForm = {postcode:'nw3 2tg'};
     
-    $scope.search=search;
+    $scope.manualSearch= manualSearch;
     $scope.gpsSearch=gpsSearch;
     
-    function search(){
-       if($scope.postcode){
-            $location.path('/restaurants/' + $scope.postcode);
-       }
+    function manualSearch(){
+       search($scope.searchForm.postcode);
     }
-    
+          
     function gpsSearch(){
-        gpsService.GetGPS
+        gpsService.getGPS()
         .then(function (position) {
           var lat  = position.coords.latitude
           var lon = position.coords.longitude
-          
           getAddresses(lat,lon);
-            
         }, function(err) {
           // error
         });
     }
     
     function getAddresses(lat,lon){
-       postcodeService(lat,lon)
+       postcodeService
+       .getPostcode(lat,lon)
           .then(function(matchingAddresses){
-              $scope.matchingAddresses= matchingAddresses;
-              getNearestPostcode(matchingAddresses);
+              $scope.matchingAddresses= matchingAddresses.data.result;
+              $scope.searchForm.postcode = getNearestGpsPostcode($scope.matchingAddresses);
+              search($scope.searchForm.postcode);
           })
           .catch(function(error){
               console.error('There was an error retrieving addresses: ', error);
           })
     }
     
-    function getNearestPostcode(postcodes){
-        $scope.gpsPostcode = postcodes[0].postcode;
+    function getNearestGpsPostcode(postcodes){
+         return postcodes[0].postcode;
+    }
+    
+    function search(postcode){
+       if(postcode){
+            $state.go('app.restaurants',{postcode:postcode});
+       }
     }
     
 });

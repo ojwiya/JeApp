@@ -3,35 +3,30 @@
     <div class="list card">
 
   <div class="item item-avatar">
-    <img src="">
+    <img src="http://loremflickr.com/230/230/food,{{restaurant.cuisineTypes}}">
     <h2>{{restaurant.name}}</h2>
-    <p>{{restaurant.address}}</p>
-    <p>{{restaurant.name}}</p>
-    <p>{{restaurant.address}}</p>
-    <p>{{restaurant.postcode}}</p>
-    <p>{{restaurant.city}}  </p>
-    
+    <h4>{{restaurant.address}}</h4>
+    <h4>{{restaurant.postcode}}</h4>
+    <h4>{{restaurant.city}}  </h4>
+     <span ng-if="restaurant.isOpenNow" class="badge badge-balanced">open</span>
+     <span ng-if="!restaurant.isOpenNow" class="badge badge-dark">closed</span>  
   </div>
 
   <div class="item item-body">
-    <img class="full-image" src="http://lorempixel.com/230/230/food/">
-    <p ng-repeat="c in restaurant.cuisineTypes">
-      {{c.name}}
-    </p>
-    <p>
-      <a href="#" class="subdued">min Value:{{restaurant.minimumDeliveryValue}}</a>
-      <a href="#" class="subdued">
-        <i ng-if="restaurant.isOpenNowForDelivery" class="icon ion-ios-circle-filled">Open</i>
-        <i ng-if="!restaurant.isOpenNowForDelivery" class="icon ion-ios-circle">Closed</i>
-        </a>
-      <a href="#" class="subdued">{{restaurant.deliveryTime}}<</a>
-    </p>
     
-      <p ng-repeat=" i in restaurant.ratingStars">
-      <i class="icon ion-ios-star"></i>
-    </p>
-     <i class="icon ion-ios-person">{{restaurant.numberOfRatings}}</i>
-     
+     <div class="row">
+        <div class="col">
+                 <p ng-repeat="c in restaurant.cuisineTypes">
+                    {{c.name}}
+                  </p>  
+        </div>
+        <div class="col">
+                  <p>
+                    <a href="#" class="subdued">Min. order:£{{restaurant.minimumDeliveryValue}}</a>
+                    <a href="#" class="subdued">Delivers in:{{restaurant.deliveryTime}} mins</a>
+                  </p>  
+        </div>
+      </div>
   </div>
 
 </div>

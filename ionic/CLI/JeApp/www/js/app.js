@@ -21,7 +21,7 @@ angular.module('jeapp', ['ionic', 'ngCordova'])
 
 .config(function($stateProvider, $urlRouterProvider) {
   $stateProvider
-
+  
     .state('app', {
     url: '/app',
     abstract: true,

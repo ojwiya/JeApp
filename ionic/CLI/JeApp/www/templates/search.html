@@ -3,14 +3,12 @@
     <div class="list">
   <label class="item item-input">
     <span class="input-label">Enter Postcode:</span>
-    <input type="text" ng-model="postcode">
+    <input type="text" ng-model="searchForm.postcode" />
   </label>
-        <label class="item">
-          <button class="button button-block button-positive" ng-click="search()" type="submit">Go</button>
-        </label>
-        <label class="item">
-          <button class="button button-block button-energized" ng-click="gpsSearch()" type="submit">Use Current Location</button>
-        </label>
+  <button class="button button-full button-positive" ng-click="manualSearch()">Search By Postcode
+</button>
+  <button class="button button-full button-energized" ng-click="gpsSearch()">Search By GPS
+</button>
 </div>
   </ion-content>
 </ion-view>
