@@ -6,18 +6,17 @@ var sass = require('gulp-sass');
 var minifyCss = require('gulp-minify-css');
 var rename = require('gulp-rename');
 var sh = require('shelljs');
-var karma = require('karma').server;
+var Server = require('karma').Server;
 
 /**
 * Test task, run test once and exit
 */
 gulp.task('test', function(done) {
-    karma.start({
-        configFile: __dirname + './tests/unit-tests.conf.js',
-        singleRun: true
-    }, function() {
-        done();
-    });
+    new Server({
+    configFile: __dirname + '/tests/unit-tests.conf.js',
+    singleRun: true
+  }, done).start();
+    
 });
 
 var paths = {

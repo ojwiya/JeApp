@@ -9,7 +9,7 @@ describe('Controllers', function(){
         _stateParams = {postcode:'nw2 3tg'};
         _restaurantsService = restaurantsService;
         _utilityService =  utilityService;
-        $controller('RestuarantsCtrl', {$scope: _scope,$statParams:_stateParams
+        $controller('RestuarantsCtrl', {$scope: _scope,$stateParams:_stateParams
         ,restaurantsService:_restaurantsService,utilityService:_utilityService});
     }));
 
