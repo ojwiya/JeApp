@@ -8,8 +8,8 @@ You can searh using a postcode or the GPS of your mobile. It displays details su
 cuisine and min order value.
 
 Please see screen shots below:
-<img src="https://github.com/ojwiya/JeApp/tree/master/ionic/ScreenShots/Menu%20Options.png" >
-<img src="https://github.com/ojwiya/JeApp/tree/master/ionic/Restaurant%20List.png" >
-<img src="https://github.com/ojwiya/JeApp/tree/master/ionic/ScreenShots/Search%20Restaurants%20(GPS%20or%20Postcode).png" >
-<img src="https://github.com/ojwiya/JeApp/tree/master/ionic/ScreenShots/login%20mock.png" >
-<img src="https://github.com/ojwiya/JeApp/tree/master/ionic/ScreenShots/login%20mock.png" >
+<img src="https://github.com/ojwiya/JeApp/blob/master/ionic/ScreenShots/Menu%20Options.png" >
+<img src="https://github.com/ojwiya/JeApp/blob/master/ionic/Restaurant%20List.png" >
+<img src="https://github.com/ojwiya/JeApp/blob/master/ionic/ScreenShots/Search%20Restaurants%20(GPS%20or%20Postcode).png" >
+<img src="https://github.com/ojwiya/JeApp/blob/master/ionic/ScreenShots/login%20mock.png" >
+<img src="https://github.com/ojwiya/JeApp/blob/master/ionic/ScreenShots/login%20mock.png" >
