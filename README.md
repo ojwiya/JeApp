@@ -12,4 +12,4 @@ Please see screen shots below:<br/>
 <img src="https://github.com/ojwiya/JeApp/blob/master/ionic/ScreenShots/Restaurant%20List.png" height=350 >
 <img src="https://github.com/ojwiya/JeApp/blob/master/ionic/ScreenShots/Search%20Restaurants%20(GPS%20or%20Postcode).png" height=350  >
 <img src="https://github.com/ojwiya/JeApp/blob/master/ionic/ScreenShots/login%20mock.png" height=350  >
-<img src="https://github.com/ojwiya/JeApp/blob/master/ionic/ScreenShots/login%20mock.png" height=350  >
+<img src="https://github.com/ojwiya/JeApp/blob/master/ionic/ScreenShots/RestaurantBackedService_Api.png" height=350  >
